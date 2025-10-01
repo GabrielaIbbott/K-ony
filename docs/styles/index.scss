@@ -1,0 +1,32 @@
+@use 'variables' as *;
+@use 'header';
+@use 'card';
+@use 'conta';
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--ff-sans);
+  background: linear-gradient(180deg,#071026 0%, #071028 60%);
+  color: #e6eef8;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.site { width: 100%; max-width: $max-width; }
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .9rem;
+}
+
+@media (max-width: 1000px) { .products { grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 720px)  { .products { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 420px)  { 
+  .products { grid-template-columns: 1fr; }
+  .site-header { flex-direction: column; align-items: flex-start; }
+}
